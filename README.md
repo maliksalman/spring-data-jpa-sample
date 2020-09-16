@@ -1,10 +1,10 @@
-## spring-data-jpa-sample
+# spring-data-jpa-sample
 
-A sample spring-boot application that shows off `spring-data-jpa` capabilities. It also shows an example of integration with flyway DB migrations.
+A sample spring-boot application that shows off `spring-data-jpa` capabilities. It also shows an example of integration with `flyway` DB migrations.
 
 ### Building
 
-JDK 11 is required to run. 
+JDK 11 is required to run: 
 
 ```
 ./gradlew clean build
@@ -27,5 +27,7 @@ SPRING_PROFILES_ACTIVE=localmysql java -jar build/libs/sql-data-0.0.1-SNAPSHOT.j
 For the above to work, the DB connection properties defined in [src/main/resources/application-localmysql.yml](src/main/resources/application-localmysql.yml) might have to be adjusted. For the above to work without any change, start a MySQL instance in docker like so:
 
 ```
-docker run --name mysql -e MYSQL_DATABASE=testdb -e MYSQL_ROOT_PASSWORD=my-secret-pw -d -p 13306:3306 mysql:latest
+docker run --name mysql \
+    -e MYSQL_DATABASE=testdb -e MYSQL_ROOT_PASSWORD=my-secret-pw \
+    -d -p 13306:3306 mysql:latest
 ```
