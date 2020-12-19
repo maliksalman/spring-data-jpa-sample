@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.9.RELEASE'
+	id 'org.springframework.boot' version '2.2.12.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 }
@@ -20,6 +20,8 @@ dependencies {
 	implementation 'com.h2database:h2'
 	implementation 'mysql:mysql-connector-java'
 	implementation 'org.flywaydb:flyway-core:6.5.5'
+
+	implementation 'org.springdoc:springdoc-openapi-ui:1.5.2'
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
