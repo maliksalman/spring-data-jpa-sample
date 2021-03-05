@@ -15,11 +15,14 @@ repositories {
 dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	
 	implementation 'com.h2database:h2'
 	implementation 'mysql:mysql-connector-java'
 	implementation 'org.flywaydb:flyway-core:6.5.5'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
 
 	implementation 'org.springdoc:springdoc-openapi-ui:1.5.2'
 

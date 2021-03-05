@@ -1,16 +1,24 @@
 package com.smalik.sqldata;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 import javax.validation.Valid;
 
-@Controller
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/person")
 public class PersonController {
 
-	@Autowired
-	private PersonRepository repo;
+	private final PersonRepository repo;
 	
 	/**
 	 * Creates a new person, example:
@@ -20,8 +28,7 @@ public class PersonController {
 	 * curl -X POST -H "Content-Type: application/json" "http://localhost:8080/person" -d '{"name":"BarryAllen", "age":20}' --silent | jq .
 	 * </code>
 	 */
-	@RequestMapping(value="/person", method=RequestMethod.POST)
-	@ResponseBody
+	@PostMapping
 	public Person create(@RequestBody @Valid Person bean) {
 		return repo.save(bean);
 	}
@@ -32,8 +39,7 @@ public class PersonController {
 	 * curl -X GET "http://localhost:8080/person" --silent | jq .
 	 * </code>
 	 */
-	@RequestMapping(value="/person", method=RequestMethod.GET)
-	@ResponseBody
+	@GetMapping
 	public Iterable<Person> all() {
 		return repo.findAll();
 	}
@@ -44,9 +50,8 @@ public class PersonController {
 	 * curl -X GET "http://localhost:8080/person/lt/30" --silent | jq .
 	 * </code>
 	 */
-	@RequestMapping(value="/person/lt/{age}", method=RequestMethod.GET)
-	@ResponseBody
-	public Iterable<Person> lessThan(@PathVariable int age) {
+	@GetMapping("/person/lt/{age}")
+	public List<Person> lessThan(@PathVariable int age) {
 		return repo.findByAgeLessThan(age);
 	}
 
@@ -56,9 +61,8 @@ public class PersonController {
 	 * curl -X GET "http://localhost:8080/person/gt/30" --silent | jq .
 	 * </code>
 	 */
-	@RequestMapping(value="/person/gt/{age}", method=RequestMethod.GET)
-	@ResponseBody
-	public Iterable<Person> greaterThan(@PathVariable int age) {
+	@GetMapping("/person/gt/{age}")
+	public List<Person> greaterThan(@PathVariable int age) {
 		return repo.findByAgeGreaterThan(age);
 	}
 
@@ -68,9 +72,8 @@ public class PersonController {
 		 * curl -X GET "http://localhost:8080/person/ClarkKent" --silent | jq .
 	 * </code>
 	 */
-	@RequestMapping(value="/person/{name}", method=RequestMethod.GET)
-	@ResponseBody
-	public Iterable<Person> name(@PathVariable String name) {
+	@GetMapping("/person/{name}")
+	public List<Person> name(@PathVariable String name) {
 		return repo.findByName(name);
 	}
 }
