@@ -50,7 +50,7 @@ public class PersonController {
 	 * curl -X GET "http://localhost:8080/person/lt/30" --silent | jq .
 	 * </code>
 	 */
-	@GetMapping("/person/lt/{age}")
+	@GetMapping("/lt/{age}")
 	public List<Person> lessThan(@PathVariable int age) {
 		return repo.findByAgeLessThan(age);
 	}
@@ -61,7 +61,7 @@ public class PersonController {
 	 * curl -X GET "http://localhost:8080/person/gt/30" --silent | jq .
 	 * </code>
 	 */
-	@GetMapping("/person/gt/{age}")
+	@GetMapping("/gt/{age}")
 	public List<Person> greaterThan(@PathVariable int age) {
 		return repo.findByAgeGreaterThan(age);
 	}
@@ -72,7 +72,7 @@ public class PersonController {
 		 * curl -X GET "http://localhost:8080/person/ClarkKent" --silent | jq .
 	 * </code>
 	 */
-	@GetMapping("/person/{name}")
+	@GetMapping("/{name}")
 	public List<Person> name(@PathVariable String name) {
 		return repo.findByName(name);
 	}

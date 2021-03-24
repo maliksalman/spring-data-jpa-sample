@@ -27,7 +27,5 @@ SPRING_PROFILES_ACTIVE=localmysql java -jar build/libs/sql-data-0.0.1-SNAPSHOT.j
 For the above to work, the DB connection properties defined in [src/main/resources/application-localmysql.yml](src/main/resources/application-localmysql.yml) might have to be adjusted. For the above to work without any change, start a MySQL instance in docker like so:
 
 ```
-docker run --name mysql \
-    -e MYSQL_DATABASE=testdb -e MYSQL_ROOT_PASSWORD=my-secret-pw \
-    -d -p 13306:3306 mysql:latest
+docker run --name mysql -e MYSQL_DATABASE=testdb -e MYSQL_ROOT_PASSWORD=my-secret-pw -d -p 13306:3306 mysql:latest
 ```
