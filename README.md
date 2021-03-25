@@ -15,13 +15,13 @@ JDK 11 is required to run:
 For an in-memory H2 database, just run the application:
 
 ```
-java -jar build/libs/sql-data-0.0.1-SNAPSHOT.jar 
+java -jar build/libs/spring-data-jpa-sample-0.0.1-SNAPSHOT.jar 
 ```
 
 To run with a local MySQL DB, run with `localmysql` spring profile
 
 ```
-SPRING_PROFILES_ACTIVE=localmysql java -jar build/libs/sql-data-0.0.1-SNAPSHOT.jar
+SPRING_PROFILES_ACTIVE=localmysql java -jar build/libs/spring-data-jpa-sample-0.0.1-SNAPSHOT.jar
 ```
 
 For the above to work, the DB connection properties defined in [src/main/resources/application-localmysql.yml](src/main/resources/application-localmysql.yml) might have to be adjusted. For the above to work without any change, start a MySQL instance in docker like so:
