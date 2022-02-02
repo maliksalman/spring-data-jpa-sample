@@ -1,1 +1,1 @@
-ALTER TABLE person ADD CONSTRAINT unique_name UNIQUE(name);
+ALTER TABLE heroes ADD CONSTRAINT unique_name UNIQUE(name);
