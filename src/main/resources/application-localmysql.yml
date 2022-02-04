@@ -3,3 +3,6 @@ spring:
     url: jdbc:mysql://localhost:13306/testdb
     username: root
     password: my-secret-pw
+  h2:
+    console:
+      enabled: false

@@ -6,3 +6,6 @@ spring:
   properties:
     hibernate:
       generate_statistics: true
+  h2:
+    console:
+      enabled: true
