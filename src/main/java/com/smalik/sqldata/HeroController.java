@@ -15,9 +15,9 @@ public class HeroController {
     /**
      * Creates a new hero, example:
      * <code>
-     * curl -s -X POST "http://localhost:8080/person/BruceWayne/35" | jq .
-     * curl -s -X POST "http://localhost:8080/person/ClarkKent/25" | jq .
-     * curl -s -X POST "http://localhost:8080/person/BarryAllen/20" | jq .
+     * curl -s -X POST "http://localhost:8080/heroes/BruceWayne/35" | jq .
+     * curl -s -X POST "http://localhost:8080/heroes/ClarkKent/25" | jq .
+     * curl -s -X POST "http://localhost:8080/heroes/BarryAllen/20" | jq .
      * </code>
      */
     @PostMapping("/{name}/{age}")
@@ -31,7 +31,7 @@ public class HeroController {
     /**
      * Gets a list of all heroes in the system, example:
      * <code>
-     * curl -X GET "http://localhost:8080/person" --silent | jq .
+     * curl -X GET "http://localhost:8080/heroes" --silent | jq .
      * </code>
      */
     @GetMapping
@@ -42,7 +42,7 @@ public class HeroController {
     /**
      * Gets a list of all heroes in the system younger than the given age, example:
      * <code>
-     * curl -X GET "http://localhost:8080/person/lt/30" --silent | jq .
+     * curl -X GET "http://localhost:8080/heroes/lt/30" --silent | jq .
      * </code>
      */
     @GetMapping("/lt/{age}")
@@ -53,7 +53,7 @@ public class HeroController {
     /**
      * Gets a list of all heroes in the system older than the given age, example:
      * <code>
-     * curl -X GET "http://localhost:8080/person/gt/30" --silent | jq .
+     * curl -X GET "http://localhost:8080/heroes/gt/30" --silent | jq .
      * </code>
      */
     @GetMapping("/gt/{age}")
@@ -64,7 +64,7 @@ public class HeroController {
     /**
      * Gets a list of all heroes in the system with the given name, example:
      * <code>
-     * curl -X GET "http://localhost:8080/person/ClarkKent" --silent | jq .
+     * curl -X GET "http://localhost:8080/heroes/ClarkKent" --silent | jq .
      * </code>
      */
     @GetMapping("/{name}")
