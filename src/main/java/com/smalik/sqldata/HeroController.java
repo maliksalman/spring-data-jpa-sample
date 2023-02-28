@@ -1,6 +1,7 @@
 package com.smalik.sqldata;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class HeroController {
      * </code>
      */
     @PostMapping("/{name}/{age}")
-    public Hero create(@PathVariable String name, @PathVariable int age) {
+    public Hero create(@PathVariable("name") String name, @PathVariable("age") int age) {
         return repo.save(Hero.builder()
                 .name(name)
                 .age(age)
@@ -46,7 +47,7 @@ public class HeroController {
      * </code>
      */
     @GetMapping("/lt/{age}")
-    public List<Hero> lessThan(@PathVariable int age) {
+    public List<Hero> lessThan(@PathVariable("age") int age) {
         return repo.findByAgeLessThan(age);
     }
 
@@ -57,7 +58,7 @@ public class HeroController {
      * </code>
      */
     @GetMapping("/gt/{age}")
-    public List<Hero> greaterThan(@PathVariable int age) {
+    public List<Hero> greaterThan(@PathVariable("age") int age) {
         return repo.findByAgeGreaterThan(age);
     }
 
@@ -68,7 +69,8 @@ public class HeroController {
      * </code>
      */
     @GetMapping("/{name}")
-    public List<Hero> name(@PathVariable String name) {
+    @Cacheable
+    public List<Hero> name(@PathVariable("name") String name) {
         return repo.findByName(name);
     }
 }
