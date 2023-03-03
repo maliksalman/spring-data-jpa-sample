@@ -1,4 +1,6 @@
 spring:
+  jackson:
+    default-property-inclusion: non_null
   jpa:
     show-sql: true
   hibernate:
