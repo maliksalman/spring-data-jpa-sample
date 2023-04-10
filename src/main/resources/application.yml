@@ -9,3 +9,5 @@ spring:
 springdoc:
   swagger-ui:
     path: /
+startup:
+  delay-seconds: 0
