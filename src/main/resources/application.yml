@@ -1,13 +1,6 @@
-spring:
-  jpa:
-    show-sql: true
-  hibernate:
-    ddl-auto: none
-  h2:
-    console:
-      enabled: true
 springdoc:
   swagger-ui:
     path: /
-startup:
-  delay-seconds: 0
+delays:
+  startup: 0
+  up-status: 0
