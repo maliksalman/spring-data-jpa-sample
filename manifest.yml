@@ -3,6 +3,7 @@ applications:
   - name: spring-data-jpa-sample
     path: build/libs/spring-data-jpa-sample-1.0.jar
     memory: 1G
+    random-route: true
     instances: 1
     buildpacks:
       - java_buildpack_offline

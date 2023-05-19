@@ -21,6 +21,8 @@ dependencies {
 	implementation 'mysql:mysql-connector-java'
 	implementation 'org.flywaydb:flyway-core:7.7.0'
 
+	implementation 'io.pivotal.cfenv:java-cfenv-boot:2.4.2'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
