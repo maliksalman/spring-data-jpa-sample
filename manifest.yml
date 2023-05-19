@@ -9,5 +9,6 @@ applications:
       SPRING_PROFILES_ACTIVE: cloud
     buildpacks:
       - java_buildpack_offline
+    random-route: true
 #    services:
-#      - heroes-db
+#      - heroes-rds
