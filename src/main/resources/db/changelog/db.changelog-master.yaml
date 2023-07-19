@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: change-00001
+      author: salman.malik
+      changes:
+        - createTable:
+            tableName: heroes
+            remarks: A table that contains information about super-heroes
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: INT
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: change-00002
+      author: salman.malik
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: name
+            indexName: unique_name
+            tableName: heroes
+            unique: true
