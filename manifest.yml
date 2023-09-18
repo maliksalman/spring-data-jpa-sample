@@ -11,4 +11,4 @@ applications:
       - java_buildpack_offline
     random-route: true
 #    services:
-#      - heroes-rds
+#      - heroes-db
