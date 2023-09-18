@@ -7,6 +7,10 @@ spring:
     console:
       enabled: true
 
+timeouts:
+  readTimeout: 30
+  connectionTimeout: 1
+
 springdoc:
   swagger-ui:
     path: /

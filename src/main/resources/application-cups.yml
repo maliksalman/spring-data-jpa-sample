@@ -1,0 +1,11 @@
+spring:
+  h2:
+    console:
+      enabled: false
+  datasource:
+    url: ${vcap.services.heroes-db.credentials.jdbcUrl}
+    username: ${vcap.services.heroes-db.credentials.username}
+    password: ${vcap.services.heroes-db.credentials.password}
+timeouts:
+  readTimeout: ${vcap.services.timeouts.credentials.read}
+  connectionTimeout: ${vcap.services.timeouts.credentials.conn}
