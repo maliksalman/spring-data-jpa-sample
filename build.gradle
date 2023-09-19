@@ -4,7 +4,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
-group = 'com.smalik'
+group = 'com.samples'
 version = '1.0'
 sourceCompatibility = '17'
 
@@ -14,19 +14,28 @@ repositories {
 
 dependencies {
 
+	// starter for spring MVC web application
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// starters for spring-data-jpa
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// needed to bind to services when deployed in TAS/CloudFoundry
 	implementation 'io.pivotal.cfenv:java-cfenv-boot:2.4.2'
 
+	// automatically exposes OpenAPI swagger documentation for APIs
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+
+	// needed to maintain DB schema changes as code
 	implementation 'org.liquibase:liquibase-core'
 
+	// JDBC drivers, usually only one is needed, 3 here for demo purposes
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	runtimeOnly 'org.postgresql:postgresql'
 
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
-
+	// project-lombok to remove boiler-plate java code
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 }
