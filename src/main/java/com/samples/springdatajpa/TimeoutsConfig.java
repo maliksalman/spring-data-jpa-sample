@@ -1,4 +1,4 @@
-package com.smalik.sqldata;
+package com.samples.springdatajpa;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
